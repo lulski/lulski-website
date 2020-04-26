@@ -1,0 +1,2 @@
+npx es-dev-server --node-resolve --watch
+
