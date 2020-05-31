@@ -1,1 +1,4 @@
 node_modules
+.storybook
+rollup.config.js
+karma.conf.js

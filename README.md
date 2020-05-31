@@ -11,3 +11,8 @@ npm install
 npx es-dev-server --node-resolve --watch
 
 ## What's included
+
+
+## TODO
+think about the purpose of the website
+integrate with springboot backend
