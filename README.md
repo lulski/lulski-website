@@ -14,5 +14,4 @@ npx es-dev-server --node-resolve --watch
 
 
 ## TODO
-think about the purpose of the website
 integrate with springboot backend
