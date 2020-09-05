@@ -3,39 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Hello Bulma!</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-  <script type="module" src="/_javascript/_webcomponent/lulski-nav-bar.js"></script>
+  <title>Lulski Website!</title>
+  <link rel="stylesheet" href="resources/css/bulma-0.9.0/css/bulma.min.css">
+
+  <script type="module" src="resources/javascript/_webcomponent/lulski-nav-bar.js"></script>
+  <script type="module" src="resources/javascript/_webcomponent/lulski-section-post.js"></script>
 </head>
 
 <body>
-  <lulski-nav-bar></lulski-nav-bar>
+  <lulski-nav-bar navbarItems='["Programming Notes"]'> </lulski-nav-bar>
+  <section class="section">
+    <lulski-section-post
+      post="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title="Post 1">
+    </lulski-section-post>
 
+    <lulski-section-post
+      post="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title="Post 2">
+    </lulski-section-post>
 
-  <section class="hero is-link is-fullheight-with-navbar">
-    <div class="hero-body">
-      <div class="container">
-        <p class="title">
-          Fullheight hero with navbar123
-        </p>
-        <img src="img/fallout.png">
-      </div>
-    </div>
   </section>
-  <script>
-    // $(document).ready(function () {
 
-    //   // Check for click events on the navbar burger icon
-    //   $(".navbar-burger").click(function () {
 
-    //     // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-    //     $(".navbar-burger").toggleClass("is-active");
-    //     $(".navbar-menu").toggleClass("is-active");
 
-    //   });
-    // });
-  </script>
+
 </body>
 
 </html>

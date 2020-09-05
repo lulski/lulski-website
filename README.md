@@ -3,8 +3,15 @@
 Lulski website:
 - bulma http://bulma.io
 - lit-element https://lit-element.polymer-project.org
-- fiber https://github.com/gofiber/fiber
 
 ## Install
+npm install
+
+## run dev server
+npx es-dev-server --node-resolve --watch
 
 ## What's included
+
+
+## TODO
+integrate with springboot backend
