@@ -1,7 +1,6 @@
 // Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
 
-import './css-lib-bulma.js';
 // Extend the LitElement base class
 class LulskiNavBar extends LitElement {
   static get properties() {
@@ -34,8 +33,8 @@ class LulskiNavBar extends LitElement {
     // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
 
     if (this.navbarStateExpanded === false) {
-      this.navbarBurgerSyle = 'navbar-burger is-active';
-      this.navbarMenuStyle = 'navbar-menu is-active';
+      this.navbarBurgerSyle = 'navbar-burger is-dark is-active';
+      this.navbarMenuStyle = 'navbar-menu is-dark is-active';
       this.navbarStateExpanded = true;
     } else {
       this.navbarBurgerSyle = 'navbar-burger';
@@ -48,12 +47,16 @@ class LulskiNavBar extends LitElement {
     return html`
       <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+        href="resources/css/bulma-0.9.0/css/bulma.min.css"
       />
 
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+      <nav
+        class="navbar is-dark"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">lulski website</a>
+          <a class="navbar-item" href="#">Lulski</a>
           <a
             role="button"
             class=${this.navbarBurgerSyle}
@@ -68,7 +71,7 @@ class LulskiNavBar extends LitElement {
           </a>
         </div>
 
-        <div id="navbarBasicExample" class=${this.navbarMenuStyle}>
+        <div id="navbarBasicExample" class="${this.navbarMenuStyle}">
           <div class="navbar-start">
             ${this.navbarItems.map(
               navbarItem => html` <a class="navbar-item">${navbarItem}</a> `
@@ -77,7 +80,7 @@ class LulskiNavBar extends LitElement {
 
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="button is-primary">Log in</a>
+              <a class="button is-light">Log in</a>
             </div>
           </div>
         </div>
