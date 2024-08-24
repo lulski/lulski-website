@@ -1,0 +1,15 @@
+
+{
+  "request": {
+    "method": "POST",
+    "url": "/swamp/thing"
+  },
+
+  "response": {
+    "status": 200,
+    "bodyFileName": "my-response.json",
+    "headers": {
+      "Content-Type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="lulski-www" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .full-viewport {
+        height: 100vh; /* Set the height of the container to 100% of the viewport height */
+        display: flex; /* Enable Flexbox layout */
+        align-items: center; /* Center items vertically */
+        justify-content: center; /* Center items horizontally */
+      }
+
+      .background-color-aliceblue {
+        color: aliceblue;
+      }
+
+      .fparent {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+
+      .fparent > div {
+        background: yellow;
+        flex: 1;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body class="has-background-light">
+    <div class="container">
+      <section class="section">
+        <div class="container is-flex is-justify-content-center">
+          <div class="heading">
+            <h1 class="title">Section</h1>
+            <h2 class="subtitle">
+              A simple container to divide your page into
+              <strong>sections</strong>, like the one you're currently reading
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="columns fparent">
+          <div class="column box mx-3 mb-1">
+            <p class="subtitle has-text-black-bis">Box 1</p>
+            <p>
+              This is prime space! Use it to elaborate on your
+              attention-grabbing section title. Explain what this section is
+              about, share some details, and give just the right amount of
+              information to get the audience hooked. This is prime space! Use
+              it to elaborate on your attention-grabbing section title. Explain
+              what this section is about, share some details, and give just the
+              right amount of information to get the audience hooked.
+            </p>
+          </div>
+          <div class="column box mx-3 mb-1">
+            <p class="subtitle">Box 2</p>
+            <p>
+              This is prime space! Use it to elaborate on your
+              attention-grabbing section title. Explain what this section is
+              about, share some details, and give just the right amount of
+              information to get the audience hooked.
+            </p>
+          </div>
+          <div class="column box mx-3 mb-1">
+            <p class="subtitle">Box 3</p>
+            <p>
+              This is prime space! Use it to elaborate on your
+              attention-grabbing section title. Explain what this section is
+              about, share some details, and give just the right amount of
+              information to get the audience hooked. it to elaborate on your
+              attention-grabbing section title. Explain it to elaborate on your
+              attention-grabbing section title. Explain
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

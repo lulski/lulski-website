@@ -1,0 +1,110 @@
+plugins {
+    id 'java-library'
+    id 'java'
+    id 'org.springframework.boot' version '3.3.1'
+    id "info.solidsoft.pitest" version "1.15.0"
+    id 'checkstyle'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.spring.io/milestone')
+    }
+
+    maven {
+        url = uri('https://repo.spring.io/snapshot')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+
+
+dependencies {
+// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas:3.3.1'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:3.3.1'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.2.RELEASE'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    compileOnly 'jakarta.persistence:jakarta.persistence-api:3.2.0'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+    compileOnly 'jakarta.validation:jakarta.validation-api:3.1.0'
+
+
+//    api libs.org.springframework.boot.spring.boot.starter.web
+//    api libs.org.springframework.boot.spring.boot.starter.data.jpa
+//    api libs.jakarta.persistence.jakarta.persistence.api
+ //   api libs.jakarta.servlet.jakarta.servlet.api
+  //  api libs.jakarta.validation.jakarta.validation.api
+    runtimeOnly libs.org.springframework.boot.spring.boot.properties.migrator
+    runtimeOnly libs.org.springframework.boot.spring.boot.devtools
+    runtimeOnly libs.com.microsoft.sqlserver.mssql.jdbc
+    runtimeOnly libs.com.h2database.h2
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    // https://mvnrepository.com/artifact/org.wiremock/wiremock-standalone
+    testImplementation 'org.wiremock:wiremock-standalone:3.9.1'
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testImplementation "org.assertj:assertj-core:3.24.2"
+
+
+}
+
+group = 'com.lulski.blog'
+version = '0.0.1-SNAPSHOT'
+description = 'sage'
+
+
+
+
+pitest {
+    pitestVersion = "1.14.4"
+    junit5PluginVersion = "1.2.0"    //with no longer shaded junit-platform-launcher
+    verbose = true  //for "ClassNotFoundException: org.junit.platform.launcher.core.LauncherFactory" which should not happen
+    targetClasses = ['com.lulski.**']
+    targetTests = ['com.lulski.**']
+    mutators = ['ALL']
+    threads = 4
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+
+
+checkstyle {
+    toolVersion = '10.17.0'
+}
+
+
+test {
+    useJUnitPlatform()
+}
+
+def profiles = 'h2'
+
+//bootRun {
+//    args = ["--spring.profiles.active=" + profiles]
+//}
