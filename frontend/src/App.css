@@ -59,3 +59,9 @@
   font-size: 12px !important;
 }
 
+.myButton{
+  color: red;
+
+  background-color: #ff5733;
+  border-color: #ff5733;
+}
