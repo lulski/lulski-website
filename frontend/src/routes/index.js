@@ -8,32 +8,28 @@ const Routes = () => {
   // Define public routes accessible to all users
   const routesForPublic = [
     {
-      path: "/service",
-      element: <div>Service Page</div>,
+      path: "/",
+      element: <div>homepage</div>,
     },
     {
-      path: "/about-us",
-      element: <div>About Us</div>,
+      path: "/logout",
+      element: <div>Logout</div>,
     },
   ];
 
   // Define routes accessible only to authenticated users
   const routesForAuthenticatedOnly = [
     {
-      path: "/",
+      path: "/admin",
       element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
       children: [
         {
-          path: "/",
-          element: <div>User Home Page</div>,
+          path: "/admin/user",
+          element: <div>Admin - User Home Page</div>,
         },
         {
-          path: "/profile",
-          element: <div>User Profile</div>,
-        },
-        {
-          path: "/logout",
-          element: <div>Logout</div>,
+          path: "/admin/user/profile",
+          element: <div>Admin User Profile</div>,
         },
       ],
     },
@@ -41,10 +37,6 @@ const Routes = () => {
 
   // Define routes accessible only to non-authenticated users
   const routesForNotAuthenticatedOnly = [
-    {
-      path: "/",
-      element: <div>Home Page</div>,
-    },
     {
       path: "/login",
       element: <div>Login</div>,
