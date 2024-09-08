@@ -1,5 +1,7 @@
 package com.lulski.blog.sage.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -10,6 +12,9 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -41,19 +46,18 @@ public class WebSecurityConfig {
 
   @Bean
   public UserDetailsService userDetailsService() {
-    UserDetails userDetails = User.withDefaultPasswordEncoder().username("user").password("password").roles("USER").build();
+    UserDetails user = User.builder().username("kocu").password("beraknanah").roles("USER").build();
 
-    return new InMemoryUserDetailsManager(userDetails);
+    UserDetails admin = User.builder().username("admin").password("beraknanah").roles("ADMIN","USER").build();
+
+
+    return new InMemoryUserDetailsManager(user,admin);
   }
 
-/*
   @Bean
-  @ConditionalOnMissingBean(UserDetailsService.class)
-  InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-    String generatedPassword = "password";
-    return new InMemoryUserDetailsManager(User.withUsername("user")
-            .password(generatedPassword).roles("USER").build());
-  }*/
+  public PasswordEncoder passwordEncoder(){
+    return  new BCryptPasswordEncoder();
+  }
 
 
 }
